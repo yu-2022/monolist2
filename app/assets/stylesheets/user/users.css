@@ -1,0 +1,128 @@
+/***************************************************
+ヘッダー2
+***************************************************/
+header{
+  display: flex;
+  height: 60px;
+}
+
+.header_left{
+  display: flex;
+  align-items: center;
+  width: 30vw;
+}
+
+.header_logo{
+  margin-left: 20px;
+  color: black;
+}
+.header_list_btn{
+  margin-left: 20px;
+}
+
+.header_right{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70vw;
+}
+
+.header_page_user{
+  margin-left: 20px;
+}
+
+.header_btns{
+  display: flex;
+}
+
+.header_btn_left{
+  margin-right: 20px;
+  color: black;
+}
+
+.header_btn_right{
+  margin-right: 20px;
+  color: black;
+}
+
+/***************************************************
+マイページ
+***************************************************/
+.index_main{
+  height: calc(100vh - 60px);
+  display: flex;
+}
+
+.index_main_left{
+  width: 20vw;
+  background-color: #79dae8;
+  padding: 10px;
+}
+
+.index_sort_list{
+  height: 30px;
+}
+
+.index_field{
+  height: calc(100% - 30px - 60px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.621);
+  overflow: scroll;
+}
+
+.index_list_name{
+  margin-bottom: 5px;
+}
+
+.index_lower_left{
+  height: 60px;
+}
+
+.index_main_right{
+  width: 80vw;
+  background-color: #e8f9fd;
+  padding: 10px;
+}
+
+/***************************************************
+プロフィールページ
+***************************************************/
+.main_base{
+  height: 100vh;
+  background-color: #79dae8;
+}
+
+.main_base_{
+  height: 100%;
+  width: 50vw;
+  margin: 0 auto;
+  background-color: #e8f9fd;
+  padding: 20px;
+}
+
+.show_user_name_field{
+  text-align: center;
+  font-size: 20px;
+}
+
+.show_user_text{
+  text-align: center;
+}
+
+.show_user_btns{
+  text-align: center;
+}
+
+.show_user_status_field{
+  display: flex;
+  justify-content: center;
+}
+
+.show_user_status{
+  margin: 0 10px;
+}
+
+.show_list_name{
+  text-align: center;
+  margin-top: 10px;
+  border-top: 1px solid #79dae8;
+}

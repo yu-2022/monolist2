@@ -1,0 +1,53 @@
+<div class="new_list_page">
+  <div class="new_list_page_">
+    <div class="new_list_page_title">アイテム編集</div>
+
+    <%= form_with model: [list, item] do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+    
+    <div class="new_list">
+      <div class="new_list_title">
+        アイテム名
+      </div>
+      <%= f.text_area :item_name, class:"list_form", id:"item_name", placeholder:"アイテム名（必須 40文字まで)", maxlength:"40" %>
+      <div class="new_list_inner">
+        <div class="new_list_title">
+          アイテムの説明
+        </div>
+        <%= f.text_area :item_text, class:"list_form", id:"item_text", placeholder:"アイテムの説明",rows:"3" ,maxlength:"1000" %>
+      </div>
+      <div class="new_list_inner">
+        <div class="new_list_title">
+          日付
+        </div>
+        <%= f.date_field(
+                  :item_date,
+                  class:'select_date',
+                  id:"item_date",
+                  use_month_numbers: true,
+                  prompt:'--',
+                  start_year: 1930,
+                  end_year: (Time.now.year + 100),
+                  date_separator: '%s') %>
+      </div>
+      <div class="new_list_inner">
+        <div class="new_list_title">
+          タグ
+        </div>
+        <%= f.text_field :tag_name, class:"list_form", id:"tag_name", placeholder:"カンマ(,)を入力することで複数のタグを付けることができます" %>
+      </div>
+      <div>
+        <label class="form_image">
+          <%= f.file_field :image, class: "hidden" %>
+          <span class="image_file">画像</span>
+        </label>
+      </div>
+      <div class="new_list_inner">
+        <%= f.submit "変更" ,class:"new_list_btn" %>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+<div>

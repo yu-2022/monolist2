@@ -1,0 +1,33 @@
+<div class="new_list_page">
+  <div class="new_list_page_">
+    <div class="new_list_page_title">リスト編集</div>
+
+    <%= form_with model: list do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+    
+    <div class="new_list">
+      <div class="new_list_title">
+        リスト名
+      </div>
+      <%= f.text_area :list_name, class:"list_form", id:"list_name", placeholder:"リスト名（必須 40文字まで)", maxlength:"40" %>
+      <div class="new_list_inner">
+        <div class="new_list_title">
+          リストの説明
+        </div>
+        <%= f.text_area :list_text, class:"list_form", id:"list_text", placeholder:"リストの説明",rows:"3" ,maxlength:"1000" %>
+      </div>
+      <div class="new_list_inner">
+        <div class="new_list_title">
+          公開範囲
+        </div>
+        <%= f.collection_select(:privacy_id, Privacy.all, :id, :name, {}, {class:"list_privacy_box", id:"list_privacy"}) %>
+      </div>
+      <div class="new_list_inner">
+        <%= f.submit "作成" ,class:"new_list_btn" %>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+<div>

@@ -1,0 +1,55 @@
+<div class="top1">
+  <%= image_tag 'logo.png', alt: 'MonoList', size: '100x30', class: "top1_logo" %>
+  <div class="top1_search_form">
+    <%= form_with url: search_lists_path, local: true, method: :get, class: "search_form" do |f| %>
+      <%= f.text_field :keyword, placeholder: "リストを探す", class: "search_input" %>
+      <%= f.submit "検索", class: "search_btn" %>
+    <% end %>
+  </div>
+  <div class="top1_btns">
+    <% if user_signed_in? %>
+      <%= link_to 'My List', users_path(id: current_user.id), class: "top1_btn1" %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "top1_btn2" %>
+    <% else %>
+      <%= link_to 'ログイン', new_user_session_path, class: "top1_btn1" %>
+      <%= link_to '新規登録', new_user_registration_path, class: "top1_btn2" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="top2">
+  <div class="top2_texts">
+    <div class="top2_text1">Simple is best</div>
+    <div class="top2_text2">
+      1.リストを作成しアイテムを管理<br>
+      2.アイテムにタグを付けて検索<br>
+      3.お気に入りのリストを保存
+    </div>
+  </div>
+</div>
+
+<div class="top3">
+  <div class="top3_field">
+    <div class="top3_title">Popular Lists</div>
+    <% if user_signed_in? %>
+      <% @lists.each do |list| %>
+      <div class="top3_list_field">
+        <div class="top_list_upper">
+          <div class="top_list_name"><%= link_to list.list_name, list_path(list) %></div>
+          <div class="top_list_fav"><%= list.favorites.length %>お気に入り</div>
+          <div class="top_list_user"><%= link_to list.user.user_name, user_path(list.user) %></div>
+        </div>
+        <div class="top_list_lower">
+          <div class="top_list_text"><%= list.list_text %></div>
+        </div>
+      </div>
+      <% end %>
+    <% else %>
+      ログインすると人気のリストを見ることができます
+    <% end %>
+  </div>
+</div>
+
+<footer>
+  <div class="footer_text">フッター</div>
+</footer>

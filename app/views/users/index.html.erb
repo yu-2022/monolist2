@@ -1,0 +1,26 @@
+<%= render "header2" %>
+
+<%# モーダルウィンドウ %>
+<div id="mask", class="hidden"></div>
+  <div id="modal", class="hidden">
+    <p>モーダルウィンドウ<p>
+  </div>
+<%# //モーダルウィンドウ %>
+
+<div class="index_main">
+  <div class="index_main_left">
+    <div class="index_sort_list">Lists</div>
+    <div class="index_field">
+      <ul>
+      <% @lists.each do |list| %>
+        <li><%= link_to list.list_name, list_path(list.id), class: "index_list_name" %></li>
+      <% end %>
+      </ul>
+    </div>
+    <div class="index_lower_left"></div>
+  </div>
+
+  <div class="index_main_right">
+    
+  
+</div>

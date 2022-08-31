@@ -1,0 +1,5 @@
+<% if list.favorites.where(list_id: list.id, user_id: current_user.id).exists? %>
+  <%= link_to 'お気に入り解除', favorite_path(list_id: list.id), method: :delete, remote: true, class: "index_list_fav" %>
+<% else %>
+  <%= link_to 'お気に入り登録', favorites_path(list_id: list.id), method: :post, rermote: true, class: "index_list_fav" %>
+<% end %>

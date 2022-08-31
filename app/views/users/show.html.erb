@@ -1,0 +1,35 @@
+<%= render "header" %>
+
+<div class="main_base">
+  <div class="main_base_">
+    <div class="show_user_name_field"><%= @user.user_name %></div>
+    <div class="show_user_text"><%= @user.user_text %></div>
+    <div class="show_user_btns">
+      <% if user_signed_in? && @user.id == current_user.id %>
+        <%= link_to '編集', edit_user_registration_path, class: "show_user_btn" %>
+      <% else %>
+        <% if current_user.following?(@user) %>
+          <%= link_to "フォロー解除", user_follows_path(@user.id), method: :delete %>
+        <% else %>
+          <%= link_to "フォローする", user_follows_path(@user.id), method: :post %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="show_user_status_field">
+      <div class="show_user_status"><%= @user.followings.count %><%= link_to 'フォロー', user_followings_path(@user) %></div>
+      <div class="show_user_status"><%= @user.followers.count %><%= link_to 'フォロワー', user_followers_path(@user) %></div>
+      <div class="show_user_status"><%= link_to 'お気に入りリスト', favorites_path(id: @user.id) %></div>
+    </div>
+    <div class="show_list_name">
+      <ul>公開リスト一覧
+      <% @lists.each do |list| %>
+        <% if list.privacy_id == 2 || (list.privacy_id == 3 && (current_user.following?(@user) || current_user.id == @user.id)) || (list.privacy_id == 4 && current_user.id == @user.id) %>
+          <li><%= link_to list.list_name, list_path(list) %></li>
+        <% else %>
+          <li>公開リストはありません</li>
+        <% end %>
+      <% end %>
+      </ul>
+    </div>
+  <div>
+</div>

@@ -1,0 +1,15 @@
+<%= render partial: 'users/header'%>
+
+<div class="main_base">
+  <div class="main_base_">
+    <div class="show_user_name_field"><%= "#{@user.user_name}さんのお気に入り" %></div>
+    <div class="show_user_text">
+    <% @favorites.each do |fav| %>
+      <ul><li>
+        <%= link_to fav.list.list_name, list_path(fav.list) %>/
+        <%= link_to fav.list.user.user_name, user_path(fav.list.user) %>
+      </li><ul>
+    <% end %>
+    </div>
+  <div>
+</div>

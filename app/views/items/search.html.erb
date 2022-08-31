@@ -1,0 +1,62 @@
+<%= render "users/header2" %>
+
+<%# モーダルウィンドウ %>
+<div id="mask", class="hidden"></div>
+  <div id="modal", class="hidden">
+    <p>モーダルウィンドウ<p>
+  </div>
+<%# //モーダルウィンドウ %>
+
+<div class="index_main">
+  <div class="index_main_left">
+    <div class="index_sort_list">リスト並び替え</div>
+    <div class="index_field">
+      <ul>
+      <% @lists.each do |list| %>
+        <li><%= link_to list.list_name, list_path(list.id), class: "index_list_name" %></li>
+      <% end %>
+      </ul>
+    </div>
+    <div class="index_lower_left"><br></div>
+  </div>
+
+  <div class="index_main_right">
+    <div class="index_list_field">
+      <div class="index_list_upper">
+        <div class="index_list_upper_left">
+          <div>[<%= @tag.tag_name %>]タグのついたアイテム</div>
+        </div>
+        <div class="index_list_upper_right"></div>
+      </div>
+      <div class="index_list_lower"></div>
+    </div>
+    <div class="index_sort_item">アイテム並び替え</div>
+    <div class="index_item_field">
+    <% @items.each do |item| %>
+      <div class="index_item_inner">
+        <div class="index_item_inner_left">
+          <div class="index_item_inner_upper"><%= item.item_name %></div>
+          <div class="index_item_inner_middle"><%= item.item_text %></div>
+          <div class="index_item_inner_lower">
+            <div class="index_item_date"><%= item.item_date %></div>
+            <div class="index_item_tags">
+              <% item.tags.each do |tag|%>
+                [<%= link_to tag.tag_name, tag_items_path(tag_id: tag.id, user_id: @user.id) %>]
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div class="index_item_inner_right">
+          <%= image_tag item.image.variant(resize: '80x80'), class: 'item_image' if item.image.attached? %>
+          <div><%= link_to '編集', edit_list_item_path(item.list_id, item.id), remote: true %></div>
+          <div><%= link_to '削除', list_item_path(item.list_id, item.id), method: :delete %></div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+
+    <div class="index_lower_right"></div>
+
+  </div>
+</div>
+

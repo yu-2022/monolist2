@@ -1,0 +1,284 @@
+/***************************************************
+トップページ
+***************************************************/
+.top1{
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top1_logo{
+  margin-left: 20px;
+}
+
+.top1_btns{
+  display: flex;
+}
+
+.top1_btn1{
+  margin-right: 20px;
+  color: black;
+}
+
+.top1_btn2{
+  margin-right: 10px;
+  color: black;
+}
+
+.top2{
+  height: 300px;
+  background-color: #79dae8;
+}
+
+.top2_texts{
+  margin: 0 auto;
+  height: 100%;
+  width: 50vw;
+}
+
+.top2_text1{
+  text-align: center;
+  color: white;
+  font-size: 30px;
+  padding-top: 40px;
+  margin-bottom: 20px;
+}
+
+.top2_text2{
+  text-align: center;
+  color: white;
+}
+
+.top3{
+  margin: 20px 0;
+}
+
+.top3_field{
+  margin: 0 auto;
+  width: 400px;
+  overflow: scroll;
+}
+
+.top3_title{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.top3_list_field{
+  margin: 0 auto;
+  padding: 10px;
+  border: 1px black solid;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.top_list_upper{
+  display: flex;
+  justify-content: space-between;
+}
+
+footer{
+  background-color: #e8f9fd;
+  padding: 20px 0;
+}
+
+.footer_text{
+  color: gray;
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+/***************************************************
+モーダルウィンドウ
+***************************************************/
+
+#mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#modal {
+  position: fixed;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;
+  z-index: 2;
+  width: 935px;
+}
+
+#mask.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.8);
+}
+
+.new_list_page{
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+/***************************************************
+モーダルウィンドウ：リスト作成
+***************************************************/
+.new_list_page_{
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.new_list_page_title{
+  padding: 20px 0;
+}
+
+.new_list{
+  margin: 0 auto;
+  text-align: center;
+}
+
+.list_form{
+  width: 50%;
+  margin-bottom: 20px;
+  resize: none;
+}
+
+.list_privacy_box{
+  margin-bottom: 20px;
+}
+
+.new_list_btn{
+  margin: 20px 0 ;
+}
+
+/***************************************************
+リスト詳細画面
+***************************************************/
+.index_list_field{
+  height: 60px;
+  border-bottom: solid 1px #79dae8;
+}
+
+.index_list_upper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.index_list_upper_left{
+  display: flex;
+}
+
+.index_list_upper_inner{
+  margin-right: 10px;
+}
+
+.index_list_fav{
+  cursor: pointer;
+}
+
+.index_list_upper_right{
+  display: flex;
+}
+
+.index_list_upper_inner_{
+  margin-left: 10px;
+}
+
+.index_sort_item{
+  height: 20px;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.index_item_field{
+  height: calc(100% - 60px - 20px - 60px);
+  overflow: scroll;
+}
+
+.index_item_inner{
+  height: 80px;
+  border: solid 1px #0aa1dd;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.index_item_inner_middle{
+  overflow: hidden;
+  height: 25px;
+  max-width: 900px;
+}
+
+.index_item_inner_lower{
+  display: flex;
+}
+
+.index_item_date{
+  margin-right: 10px;
+}
+
+.index_item_inner_right{
+  display: flex;
+}
+
+.item_image:hover{
+  transform: scale(2, 2);
+}
+
+.index_item_inner_{
+  margin-left: 10px;
+}
+
+.index_lower_right{
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+textarea, input {
+  vertical-align: top;
+}
+
+.new_item_form{
+  resize: none;
+}
+
+.form_image {
+  background-color: lightblue;
+  color: white;
+  padding: 5px;
+  width: 60px;
+  margin: 5px 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.new_item_btn{
+  width: 70px;
+  margin-left: 10px;
+  border: solid 1px white;
+  background: #0aa1dd;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}

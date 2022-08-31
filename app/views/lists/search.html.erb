@@ -1,0 +1,15 @@
+<%= render partial: 'users/header'%>
+
+<div class="main_base">
+  <div class="main_base_">
+    <div class="show_user_name_field">リスト検索結果</div>
+    <div class="show_user_text">
+    <% @lists.each do |list| %>
+      <ul><li>
+        <%= link_to list.list_name, list_path(list) %>/
+        <%= link_to list.user.user_name, user_path(list.user) %><br>
+      </li><ul>
+    <% end %>
+    </div>
+  <div>
+</div>

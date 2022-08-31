@@ -1,0 +1,22 @@
+<header>
+  <div class="header_left">
+    <%= link_to image_tag('logo.png', size: '100x30'), root_path, class: "header_logo" %>
+    <%= link_to 'リスト作成', new_list_path, remote: true, class: "header_list_btn" %>
+  </div>
+  <div class="header_right">
+    <div class="header_page_user">
+      <% if user_signed_in? && @user.id != current_user.id %>
+        <%= @user.user_name %>さんのリスト
+      <% end %>
+    </div>
+    <div class="header_btns">
+      <% if user_signed_in? %>
+        <%= link_to current_user.user_name, user_path(current_user.id), class: "header_btn_left" %>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "header_btn_right" %>
+      <% else %>
+        <%= link_to 'ログイン', new_user_session_path, class: "header_btn_left" %>
+        <%= link_to '新規登録', new_user_registration_path, class: "header_btn_right" %>
+      <% end %>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,10 @@
+.error_field{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.error-message {
+  font-size: 1.3vw;
+  list-style: circle;
+  color: rgb(182, 48, 0);
+}
